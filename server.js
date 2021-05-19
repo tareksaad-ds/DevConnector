@@ -18,7 +18,7 @@ app.use("/api/auth", require("./routes/api/auth"));
 
 //Serve STATIC ASSETS IN PRODUCTION
 console.log("before loading frontend");
-if (process.env.NODE.ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   //SET STATIC FOLDER
   console.log("loading frontend");
 
