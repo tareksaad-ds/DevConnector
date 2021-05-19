@@ -17,12 +17,16 @@ app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/auth", require("./routes/api/auth"));
 
 //Serve STATIC ASSETS IN PRODUCTION
+console.log("before loading frontend");
 if (process.env.NODE.ENV === "production") {
   //SET STATIC FOLDER
+  console.log("loading frontend");
+
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
+  console.log("after loading frontend");
 }
 
 const PORT = process.env.PORT || 5000;
